@@ -1,0 +1,54 @@
+#input{
+    background-color: darkslategray;
+    color: black;
+    font-family: Digital7-rg1mL;
+    height: 50px;
+    font-size: 50px;
+    width: 380px;
+    text-align: right;
+    margin-top: 10px;
+}
+
+@font-face {
+    font-family: 'Digital7-rg1mL';
+    src: url('Digital7-rg1mL.ttf');
+}
+
+body{
+    background-color: rgba(2, 92, 87, 0.99);
+    font-family: 'Quicksand', 'Roboto', sans-serif;
+    
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.main{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    width: 400px;
+    flex-direction: row;
+}
+.btn{
+    font-size: 30px;
+    background-color: darkslategray;
+    margin: 20px;
+    width: 60px;
+    height: 60px;
+}
+#equalto{
+    width: 160px;
+}
