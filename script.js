@@ -61,10 +61,13 @@ function addnumtodisp(n) {
     disp.value = disp.textContent;
 }
 
-// Clear all from displat (AC)
+// Clear all from display (AC)
 allclear = document.querySelector('#allclear')
+allclear.onclick =function() {
+    clearall();
+}
 function clearall() {
     disp = document.querySelector('#input');
-    disp.textContent = '0';
+    disp.textContent = '';
     disp.value = disp.textContent;
 }
