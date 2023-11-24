@@ -52,3 +52,8 @@ body{
 #equalto{
     width: 160px;
 }
+
+#multiply{
+    text-align: center;
+    padding-top: 15px;
+}

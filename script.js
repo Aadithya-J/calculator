@@ -63,7 +63,7 @@ function addnumtodisp(n) {
 
 // Clear all from display (AC)
 allclear = document.querySelector('#allclear')
-allclear.onclick =function() {
+allclear.onclick = function() {
     clearall();
 }
 function clearall() {
@@ -71,3 +71,65 @@ function clearall() {
     disp.textContent = '';
     disp.value = disp.textContent;
 }
+
+// Clear last digit from display (C)
+clear = document.querySelector('#clear')
+clear.onclick = function(){
+    clearlast();
+}
+function clearlast(){
+
+    disp = document.querySelector('#input')
+    disp.textContent = disp.textContent.slice(0,-1)
+    disp.value = disp.textContent
+}
+
+// Addition (+)
+add = document.querySelector('#add')
+add.onclick = function(){
+    addition()
+}
+function addition(){
+    disp = document.querySelector('#input')
+    if( disp.value == '' || disp.value == 0){
+        return 0;
+
+    }
+    disp.textContent = disp.textContent+'+'
+    disp.value = disp.textContent
+}
+
+// Subtraction (-)
+sub = document.querySelector('#sub')
+sub.onclick = function(){
+    subtraction()
+}
+function subtraction() {
+    disp = document.querySelector('#input');
+    if (disp.value == '' || disp.value == 0) {
+        return 0;
+    }
+    disp.textContent = disp.textContent + '-';
+    disp.value = disp.textContent;
+}
+
+// Multiplication (*)
+
+
+multiply = document.querySelector('#multiply');
+multiply.onclick = function() {
+  multiplication();
+};
+
+function multiplication() {
+  disp = document.querySelector('#input');
+
+  if (disp.value == '' || disp.value == 0) {
+    return 0;
+  }
+
+  disp.textContent = disp.textContent + '*';
+  disp.value = disp.textContent;
+}
+
+
