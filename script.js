@@ -1,56 +1,65 @@
 // Query selector and functions for number buttons
+
 zero = document.querySelector('#zero')
 zero.onclick = function() {
-    addnumtodisp(0);
+    addtodisp(0);
 };
 
 one = document.querySelector('#one')
 one.onclick = function() {
-    addnumtodisp(1);
+    addtodisp(1);
 };
 
 two = document.querySelector('#two')
 two.onclick = function() {
-    addnumtodisp(2);
+    addtodisp(2);
 };
 
 three = document.querySelector('#three')
 three.onclick = function() {
-    addnumtodisp(3);
+    addtodisp(3);
 };
 
 four = document.querySelector('#four')
 four.onclick = function() {
-    addnumtodisp(4);
+    addtodisp(4);
 };
 
 five = document.querySelector('#five')
 five.onclick = function() {
-    addnumtodisp(5);
+    addtodisp(5);
 };
 
 six = document.querySelector('#six')
 six.onclick = function() {
-    addnumtodisp(6);
+    addtodisp(6);
 };
 
 seven = document.querySelector('#seven')
 seven.onclick = function() {
-    addnumtodisp(7);
+    addtodisp(7);
 };
 
 eight = document.querySelector('#eight')
 eight.onclick = function() {
-    addnumtodisp(8);
+    addtodisp(8);
 };
 
 nine = document.querySelector('#nine')
 nine.onclick = function() {
-    addnumtodisp(9);
+    addtodisp(9);
 };
 
+// decimal point (.)
+
+point = document.querySelector('#point')
+point.onclick =  function(){
+    addtodisp('.')
+}
+
 // Adding the clicked digit to display
-function addnumtodisp(n) {
+
+function addtodisp(n) {
     disp = document.querySelector('#input');
     
     if (disp.textContent == '0' || disp.textContent == 0) {
@@ -61,7 +70,17 @@ function addnumtodisp(n) {
     disp.value = disp.textContent;
 }
 
+// move to upper display
+
+function movetoupper(){
+    disp = document.querySelector('#input')
+    upper = document.querySelector('#upper')
+    upper.textContent = disp.textContent;
+    disp.textContent = '';
+}
+
 // Clear all from display (AC)
+
 allclear = document.querySelector('#allclear')
 allclear.onclick = function() {
     clearall();
@@ -76,6 +95,7 @@ function clearall() {
 }
 
 // Clear last digit from display (C)
+
 clear = document.querySelector('#clear')
 clear.onclick = function(){
     clearlast();
@@ -88,6 +108,7 @@ function clearlast(){
 }
 
 // Addition (+)
+
 add = document.querySelector('#add')
 add.onclick = function(){
     addition()
@@ -104,6 +125,7 @@ function addition(){
 }
 
 // Subtraction (-)
+
 sub = document.querySelector('#sub')
 sub.onclick = function(){
     subtraction()
@@ -119,7 +141,6 @@ function subtraction() {
 }
 
 // Multiplication (*)
-
 
 multiply = document.querySelector('#multiply');
 multiply.onclick = function() {
@@ -138,12 +159,41 @@ function multiplication() {
   disp.value = disp.textContent;
 }
 
-function movetoupper(){
-    disp = document.querySelector('#input')
-    upper = document.querySelector('#upper')
-    upper.textContent = disp.textContent;
-    disp.textContent = '';
+// Division (÷)
+
+divide = document.querySelector('#divide');
+divide.onclick = function() {
+    division();
+    movetoupper();
 }
+function division(){
+    disp = document.querySelector('#input')
+    if(disp.value == '' || disp.value == 0){
+        return 0;
+    }
+    disp.textContent = disp.textContent + '÷'
+    disp.value = disp.textContent
+
+}
+
+// modulo (%)
+
+modulo = document.querySelector('#modulo')
+modulo.onclick = function(){
+    modulofunc()
+    movetoupper()
+}
+
+function modulofunc(){
+    disp = document.querySelector('#input');
+    if(disp.value == '' || disp.value == 0){
+        return 0;
+    }
+    disp.textContent = disp.textContent + '%';
+    disp.value = disp.textContent;
+}
+
+// Equal to (=)
 
 equalto = document.querySelector('#equalto');
 equalto.onclick = function(){
@@ -174,8 +224,11 @@ function equal(){
             result = parseFloat(Operand1) * parseFloat(Operand2);
             return result;
             
-        case '/':
+        case '÷':
             result = parseFloat(Operand1) / parseFloat(Operand2);
+            return result;
+        case '%':
+            result = parseFloat(Operand1) % parseFloat(Operand2);
             return result;
     }
 }
