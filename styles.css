@@ -1,12 +1,14 @@
-#input{
+.display{
     background-color: darkslategray;
     color: black;
     font-family: Digital7-rg1mL;
-    height: 50px;
-    font-size: 50px;
+    height: 80px;
+    font-size: 40px;
     width: 380px;
-    text-align: right;
+    text-align: right;;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 @font-face {
@@ -31,6 +33,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 .btns{
     display: flex;
@@ -48,7 +51,21 @@ body{
     margin: 20px;
     width: 60px;
     height: 60px;
+    
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    transition: background-color 0.3s;
+    transition: transform 0.3s;
 }
+.btn:hover{
+    opacity: 0.7;
+    background-color: white;
+}
+.btn:active{
+    transform: scale(0.90);
+}
+
 #equalto{
     width: 160px;
 }
@@ -56,4 +73,16 @@ body{
 #multiply{
     text-align: center;
     padding-top: 15px;
+}
+.ans{
+    font-size: 30px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#upper{
+    background-color: darkslategray;
+}
+#input{
+    background-color: darkslategray;
 }

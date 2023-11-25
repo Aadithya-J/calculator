@@ -70,6 +70,9 @@ function clearall() {
     disp = document.querySelector('#input');
     disp.textContent = '';
     disp.value = disp.textContent;
+    upper = document.querySelector('#upper');
+    upper.innerHTML = '&nbsp;';
+
 }
 
 // Clear last digit from display (C)
@@ -88,6 +91,7 @@ function clearlast(){
 add = document.querySelector('#add')
 add.onclick = function(){
     addition()
+    movetoupper()
 }
 function addition(){
     disp = document.querySelector('#input')
@@ -103,6 +107,7 @@ function addition(){
 sub = document.querySelector('#sub')
 sub.onclick = function(){
     subtraction()
+    movetoupper()
 }
 function subtraction() {
     disp = document.querySelector('#input');
@@ -119,6 +124,7 @@ function subtraction() {
 multiply = document.querySelector('#multiply');
 multiply.onclick = function() {
   multiplication();
+  movetoupper();
 };
 
 function multiplication() {
@@ -132,4 +138,44 @@ function multiplication() {
   disp.value = disp.textContent;
 }
 
+function movetoupper(){
+    disp = document.querySelector('#input')
+    upper = document.querySelector('#upper')
+    upper.textContent = disp.textContent;
+    disp.textContent = '';
+}
 
+equalto = document.querySelector('#equalto');
+equalto.onclick = function(){
+    result = equal();
+    upper = document.querySelector('#upper');
+    upper.textContent = '';
+    upper.innerHTML = '&nbsp;';
+    input = document.querySelector('#input');
+    input.textContent = result;
+}
+
+function equal(){
+    upper = document.querySelector('#upper');
+    input = document.querySelector('#input');
+    operator = upper.textContent.slice(-1);
+    Operand1 = upper.textContent.slice(0,-1);
+    Operand2 = input.textContent;
+    switch(operator){
+        case '+':
+            result = parseFloat(Operand1) + parseFloat(Operand2);
+            return result;
+            
+        case '-':
+            result = parseFloat(Operand1) - parseFloat(Operand2);
+            return result;
+            
+        case '*':
+            result = parseFloat(Operand1) * parseFloat(Operand2);
+            return result;
+            
+        case '/':
+            result = parseFloat(Operand1) / parseFloat(Operand2);
+            return result;
+    }
+}
